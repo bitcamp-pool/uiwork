@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Attribute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body * { /*body의 하위 모든 태그들*/
+            font-size: 1.4em;
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+<body>
+    <img src="../음식이미지/독일족발.jpg" id="food" width="300" border="1" alt="">
+    <br><br>
+    <button type="button" id="btn1">기본정보 출력</button>
+    <div id="msg">기본정보 출력할 곳</div>
+    <br>
+    <button type="button" id="btn2">이미지 변경</button>
+    <button type="button" id="btn3">크기   변경</button>
+    <button type="button" id="btn4">테두리선 변경</button>
+    <button type="button" id="btn5">원래대로 변경</button>
+
+    <script>
+        var f = document.getElementById("food");
+        // 기본정보
+        document.getElementById("btn1").onclick = function(e){
+            var s = "이미지명 : " + f.getAttribute("src") + "<br>"
+            s += "width : " + f.getAttribute("width") + "<br>";
+            s += "border : " + f.getAttribute("border");
+
+            document.getElementById("msg").innerHTML = s;
+        }
+        // 이미지 변경
+        document.getElementById("btn2").onclick = function(){
+            f.setAttribute("src", "../음식이미지/짜장라면.jpg")
+        }
+        // width 변경
+        document.getElementById("btn3").onclick = function(){
+            f.setAttribute("width", 400);
+        }
+        // border 변경
+        document.getElementById("btn4").onclick = function(){
+            f.setAttribute("border", 10);
+        }
+        // 원래대로 변경
+        document.getElementById("btn5").onclick = function(){
+            // <img src="../음식이미지/독일족발.jpg" id="food" width="300" border="1" alt="">
+            f.setAttribute("src", "../음식이미지/독일족발.jpg");
+            f.setAttribute("width", 300);
+            f.setAttribute("border", 1);
+        }
+    </script>
+</body>
+</html>

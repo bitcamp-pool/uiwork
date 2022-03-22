@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>구구단</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        table {
+            width: 800px;
+            border-collapse: collapse;
+            border: 3px groove rgb(6, 151, 170);
+        }
+        table td {
+            border: 1px solid rgb(0, 38, 39);
+            text-align: center;
+            font-family: 'Jua';
+            font-size: 1.2em;
+        }
+        table tr.title {
+            height: 35px;
+            background-color: rgb(3, 119, 121);
+            color: rgb(247, 242, 243);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin-left: 300px;">[구구단]</h1>
+    <br>
+    <table>
+        <tr class="title">
+            <script>
+                for(var i=2; i<=9; i++){
+                    document.write("<td>" + i + "단</td>")
+                }
+            </script>
+        </tr>
+        <script>
+            for(var i=1; i<=9; i++){
+                document.write("<tr>")
+                for(var dan=2; dan<=9; dan++){
+                    document.write("<td>" + dan + "x" + i + "=" + dan*i + "</td>");
+                }
+                document.write("</tr>")
+            }
+        </script>
+    </table>
+</body>
+</html>

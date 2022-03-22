@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body * { /*body의 하위 모든 태그들*/
+            font-size: 1.4em;
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+<body>
+    <h2>1부터 20까지의 숫자를 입력 후 엔터를 눌러주세요</h2>
+    <b>숫자입력 : </b>
+    <!-- 마우스 포인터가 자동 포커스 -->
+    <input type="text" id="txtnum" style="width: 70px;" autofocus> 
+    <br><br>
+    <img src="../연예인사진/1.jpg" style="width: 400px;border: 1px solid lightgray;" id="photo" alt="">
+    <br>
+    <b>이미지 경로 : </b>
+    <span id="msg">../연예인사진/1.jpg</span>
+
+    <script>
+        var p = document.getElementById("photo");
+        // var m = document.getElementById("msg");
+        document.getElementById("txtnum").onkeyup = function(e){
+            console.log("value : " + e.target.value)
+            console.log("ascii code : " + e.keyCode);
+
+            var v = e.target.value; // this.value도 가능
+            // 엔터 키를 누를 경우
+            if(e.keyCode == 13){
+                if(v<1 || v>20){
+                    alert("1~20까지의 숫자만 입력해주세요");
+                    this.value = "";
+                    this.focus();
+                    return;
+                }
+                // 입력한 숫자에 해당하는 경로 만들기
+                var file = "../연예인사진/" + v + ".jpg"
+                // 이미지 변경
+                p.setAttribute("src", file); // 속성 변경하는 함수
+                // 파일명 변경
+                document.getElementById("msg").innerHTML = file;
+                // m.innerHTML = file;
+
+                // 입력값 비운 후 포커스 주기
+                this.value = "";
+                this.focus();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+    <style>
+        img.photo {
+            max-width: 170px; /*170 이 넘으면 줄이겠다...*/
+            border: 2px solid rgb(248, 155, 155);
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>자바스트립트에서의 배열 공부하기</h2>
+    <script>
+        var flowers = ["장미", "안개", "국화", "다알리아", "후리지아"];
+        var colors = new Array("red", "blue", "green", "pink", "orange");
+        console.log(flowers.length);    // 크롬 콘솔에서 확인
+        console.log(colors.length);
+
+        var s = "";
+        for(i=0; i<flowers.length; i++){
+            s += "<h3 style='color:" + colors[i] + ";'>" + flowers[i] + "</h3>";
+        }
+        document.write(s);
+    </script>
+    <h2>배열에 이미지명 넣기</h2>
+    <script>
+        var imgArr = new Array(5);
+        imgArr[0] = "../img/ani12.gif";
+        imgArr[1] = "../mainImage/K-043.png";
+        imgArr[2] = "../음식이미지/갈비립.jpg";
+        imgArr[3] = "../음식이미지/알밥.jpg";
+        imgArr[4] = "../snoopyAvata/s5.JPG";
+
+        for(var i=0; i<imgArr.length; i++){
+            document.write("<img src=" + imgArr[i]+" class='photo'>");
+        }
+    </script>
+    <h2>img 태그에 직접 이미지 넣기</h2>
+    <img src="" name="myimg"  width="100" alt="">
+    <img src="" name="myimg"  width="100" alt="">
+    <script>
+        // 태그에 같은 name이 있을 경우 배열 형태로 인식한다.
+        myimg[0].src = imgArr[2];
+        myimg[1].src = imgArr[4];
+    </script>
+</body>
+</html>

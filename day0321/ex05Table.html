@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex5Table</title>
+    <style>
+        table.a{
+            /* border 사이의 간격이 0 */
+            border-collapse: collapse; 
+        }
+        table.b{
+            width: 400px;
+            border: 5px inset gray;
+            border-collapse: collapse;
+        }
+        table.b td,table.b th{
+            border: 1px solid green;
+        }
+        table.b tr{
+            height: 40px;
+        }
+        td.bg{
+            /* background-image: url('../snoopyAvata/s10.JPG'); */
+            background-image: url('../img/ani15.gif');
+            background-size: 50px 100px;
+            /* background-repeat: repeat-x;
+            background-repeat: repeat-y; */
+            background-repeat: no-repeat;
+            background-position: right bottom;
+        }
+        body{
+            /* background: url('../img/bg12.gif') no-repeat right top; */
+            background: url('../img/bg12.gif');
+        }
+    </style>
+</head>
+<body>
+    <table class="a" border="1" style="width: 300px;">
+        <caption><b>[표1]</b></caption>
+        <tr height="50" bgcolor="orange">
+            <td>1번</td>
+            <td align="right" valign="top" bgcolor="red">2번</td>
+            <td align="center" valign="bottom">3번</td>
+            <td rowspan="2">6번</td>
+        </tr>
+        <tr height="50">
+            <td colspan="2" bgcolor="pink">4번</td>
+            <td bgcolor="gray">5번</td>
+        </tr>
+    </table>
+
+    <table class="b">
+        <caption><b>[표2]</b></caption>
+        <tr>
+            <th bgcolor="pink">이름</th><!--th는 가운데 정렬, 굵게 속성이 추가됨-->
+            <td>박보영</td>
+            <th bgcolor="#ffc">나이</th>
+            <td>23세</td>
+        </tr>
+        <tr>
+            <th bgcolor="cyan">주소</th>
+            <td colspan="3">인천 남동구 담방로 22번길 24</td>
+        </tr>
+        <tr style="height: 200px;" height="100">
+            <th>사진</th>
+            <td colspan="3" class="bg">
+                <img src="../연예인사진/14.jpg" width="100">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

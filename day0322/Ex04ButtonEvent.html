@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ButtonEvent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        #msg {
+            width: 700px;
+            font-size: 2em;
+            text-align: center;
+            font-family: 'Jua';
+            border: 2px solid orange;
+            height: 60px;
+            line-height: 60px;
+            margin-bottom: 30px;
+        }
+        button {
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            font-family: 'Jua';
+            font-size: 1.2em;
+            background-color: pink;
+            color: blue;
+        }
+        button:hover {
+            box-shadow: 5px 5px 5px gray;
+        }
+    </style>
+    <script>
+        // 페이지 처음 열릴때 호출되는 윈도우 이벤트
+        window.onload=function(){
+            document.getElementById("btn2").onclick = function() {
+                m.innerHTML="<b style='color:magenta;'>head안에 이벤트를 만들었어요!!</b>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="msg">Have a Nice Day!!!</div>
+
+    <button type="button" onclick="hello()">직접함수호출 #1</button>
+    <button type="button" onclick="hello2('다들 안녕!!')">직접함수호출 #2</button>
+    <button type="button" id="btn1">이벤트 생성 #1</button>
+    <button type="button" id="btn2">이벤트 생성 #2</button>
+
+    <script>
+        var m = document.getElementById("msg");
+
+        // 일반 사용자 함수
+        function hello(){
+            m.innerText="<b>첫번째 버튼에서 호출했어요!</b>"; // 태그도 문자열 그대로 출력
+            // m.innerHTML="<b>첫번째 버튼에서 호출했어요!</b>";         
+        }
+        function hello2(str){
+            m.innerHTML="<b>" + str + "</b>"; // html태그 적용
+        }
+
+        // id에 이벤트 생성하기
+        document.getElementById("btn1").onclick = function(){
+            m.innerHTML="<span style='color:green;'>직접 이벤트를 만들었어요!!</span>";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ImageSizeEvent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body * { /*body의 하위 모든 태그들*/
+            font-size: 1.4em;
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="btn1">점점작게</button>
+    <button type="button" id="btn2">점점크게</button>
+    <br><br>
+    <img src="../연예인사진/15.jpg" width="300" id="photo" border="2" alt="">
+
+    <script>
+        var p = document.getElementById("photo");
+       
+        // 점점작게
+        document.getElementById("btn1").onclick = function(){
+            // 현재 width 값을 얻는다.
+            var w = p.getAttribute("width");
+            console.log("빼기 : " + typeof(w));
+            p.setAttribute("width", w -= 10);
+        }
+        // 점점크게
+        document.getElementById("btn2").onclick = function(){
+            // String을 정수로 변환
+            var w = Number.parseInt(p.getAttribute("width"));
+            console.log("더하기 : " + typeof(w));
+            p.setAttribute("width", w += 10); // 덧셈 연산은 자동 형변환 X 
+        }
+    </script>
+</body>
+</html>
