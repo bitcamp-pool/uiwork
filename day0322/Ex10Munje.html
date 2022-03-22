@@ -6,26 +6,142 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=swap" 
     rel="stylesheet">
     <style>
-        #wrap { width: 600px; height: 600px; margin: 120px auto; 
-            border: 15px solid rgb(21, 101, 126); border-left: 0px; border-right: 0px;}
-        ul {
-            list-style: none;
-            margin: 0; padding: 0; margin-top: 30px;
+        #wrap { font-family: 'Nanum Gothic';}
+        table {
+            /* background-color: antiquewhite; */
+            margin: 200px auto;
+            border-collapse: collapse;
+            width: 800px; 
+            border-top: 1px;
+            border-bottom: 1px;
+            border-style: solid;
+            border-left: 0;
+            border-right: 0;
+            border-color: rgb(7, 88, 99);
         }
-        li {
-            font-family: 'Nanum Gothic'; font-size: 25px; 
+        tr {
             height: 100px;
+        }
+        th, td {
+            border: 1px solid gray;
+            border-left: 0;
+            border-right: 0;
+            border-top: 0px;
+        }
+        .a {
+            width: 500px;
+        }
+        .b, .d td.e {
+            width: 150px;
+            height: 100px;
+            font-family: 'Nanum Gothic';
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            float: left;
+            margin-left: 20px;
+            background-color: rgb(7, 88, 99);
+        }
+        .c {
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            width: 350px; 
+            height: 100px;
+            /* background-color: rgb(209, 194, 106); */
+        }
+        .c input {
+            border: 1px solid;
+            border-color: #818b8b;
+            font-size: 35px;
+            text-align: center;
+        }
+        .c button {
+            width:1100px; 
+            height: 80px;
+            margin: 10px;
+            margin-left: 20px;
+            font-size: 40px;
+        }
+        .d {
+            font-size: 35px;
         }
     </style>
 </head>
 <body>
     <div id="wrap">
-        <ul>
-            <li>이름<input type="text"></li>
-            <li>JAVA</li>
-            <li>HTML&CSS</li>
-            <li>JAVASCRIPT</li>
-        </ul>
+        <table>
+            <tr>
+                <td class="a">
+                    <div class="b">이름</div>
+                    <div class="c">
+                        <input id="name" type="text" style="width: 300px; height: 60px;">
+                    </div>
+                </td>
+                <td colspan="2" rowspan="4">
+                    <div class="d">
+                        <table>
+                            <tr>
+                                <td class="e">총점</td>
+                                <td id="total">0</td>
+                            </tr>
+                            <tr>
+                                <td class="e">평균</td>
+                                <td id="avg">0.0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="a">
+                    <div class="b">자바</div>
+                    <div class="c">
+                        <input id="java" type="text" style="width: 300px; height: 60px;">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="a">
+                    <div class="b">HTML</div>
+                    <div class="c">
+                        <input id="html" type="text" style="width: 300px; height: 60px;">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="a">
+                    <div class="c">
+                        <button id="btn" type="button">결과</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
+
+    <script>
+        var name = "";
+        var jv;
+        var hv;
+        var tv = 0;
+        var av = 0.0;
+        document.getElementById("name").focus();
+        document.getElementById("name").onkeyup = function(){
+            name = this.value;
+        }
+        document.getElementById("java").onkeyup = function(){
+            jv = Number.parseInt(this.value);
+        }
+        document.getElementById("html").onkeyup = function(){
+            hv = Number.parseInt(this.value);
+        }
+        document.getElementById("btn").onclick = function(){
+            tv = jv + hv;
+            av = tv / 2;
+            document.getElementById("total").innerHTML = tv;
+            document.getElementById("avg").innerHTML = av;
+        }
+    </script>
 </body>
 </html>
