@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=
+    Gamja+Flower&family=Jua&family=Lobster&family=
+    Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body * {
+            font-family: 'Jua';
+            font-size: 1.5em;
+        }
+        #msg {
+            position: absolute;
+            left: 200px;
+            top: 100px;
+            width: 500px;
+            height: 150px;
+            border: 10px inset pink;
+            font-size: 30px;
+            padding-top: 50px;
+            text-align: center;
+        }
+        div.info {
+            position: absolute;
+            left: 200px;
+            top: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="msg">
+        Have a Nice Day!!!<br>
+        행복한 하루되세요!!!
+    </div>
+    <div class="info">
+        <h3>배경색을 선택하세요</h3>
+        <!--그룹을 만들어 4개중 1 선택: name이 같아야 같은 그룹-->
+        <input type="radio" name="bcolor" class="bcolor" value="#7fffd4">그린색
+        <input type="radio" name="bcolor" class="bcolor" value="#ffb6c1">핑크색
+        <input type="radio" name="bcolor" class="bcolor" value="#48d1cc">하늘색
+        <input type="radio" name="bcolor" class="bcolor" value="#fff" checked>흰색
+        <br><br>
+        <h3>글꼴을 선택하세요</h3>
+        <input type="radio" name="font" class="font" value="Jua" checked>Jua
+        <input type="radio" name="font" class="font" value="Gamja Flower">Gamja
+        <input type="radio" name="font" class="font" value="Lobster">Lobster
+        <input type="radio" name="font" class="font" value="Nanum Pen Script">Nanum
+        <br><br>
+        <b>테두리선 선택 : </b>
+        <select name="" id="selline">
+            <option>solid</option>
+            <option selected>inset</option>
+            <option>dotted</option>
+            <option>dashed</option>
+            <option>double</option>
+            <option>groove</option>
+        </select>
+        <br><br>
+        <button type="button" id="btn1"
+            style="width:200px; height: 50px; margin-left: 150px;">적용하기</button>
+    </div>
+    <script>
+        var m = document.getElementById("msg");
+        // 버튼 이벤트
+        document.getElementById("btn1").onclick=function(){
+            var bcolor1 = document.getElementsByClassName("bcolor"); // 배열타입
+            console.log(bcolor1.length); // 4
+            var bcolor2 = document.getElementsByName("bcolor");      // 배열타입
+            console.log(bcolor2.length); // 4
+            var tags = document.getElementsByTagName("input");       // 모든 input 태그 배열타입
+            console.log(tags.length);    // 8
+
+            for(i=0; i<bcolor1.length; i++){
+                console.log(bcolor1[i].value + "," + bcolor1[i].checked);
+                if(bcolor1[i].checked){
+                    m.style.backgroundColor = bcolor1[i].value;
+                }
+            }
+
+            // 글꼴 얻어서 설정하기
+            var font = document.getElementsByClassName("font");
+            for(i=0; i<font.length; i++){
+                console.log(font[i].value + "," + font[i].checked);
+                if(font[i].checked){
+                    m.style.fontFamily = font[i].value;
+                }
+            }
+
+            // 테두리선 얻어서 설정하기
+            var line = document.getElementById("selline").value;
+            m.style.borderStyle = line;
+        }
+    </script>
+</body>
+</html>

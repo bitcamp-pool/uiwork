@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=
+    Gamja+Flower&family=Jua&family=Lobster&family=
+    Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body * {
+            font-family: 'Jua';
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+
+            var imgArr = new Array();
+
+            imgArr.push("../img/ani12.gif");
+            imgArr.push("../mainImage/K-043.png");
+            imgArr.push("../음식이미지/갈비립.jpg");
+            imgArr.push("../음식이미지/알밥.jpg");
+            imgArr.push("../snoopyAvata/s5.JPG");
+            imgArr.push("../연예인사진/6.jpg");
+            imgArr.push("../연예인사진/18.jpg");
+            imgArr.push("../jquery_image/m09.jpg");
+
+            console.log(imgArr.length); // 8
+
+            var imgname=["파마소녀", "이쁜그릇들", "갈비립", "알밥", "분홍원피스소녀",
+                "한예슬", "신세경", "푸른바다"];
+            
+            var photo = document.getElementById("photo");
+            var title = document.getElementById("title");
+
+            // 0 ~ 7 사이의 난수 발생
+            var rnd = parseInt(Math.random()*8);
+            photo.setAttribute("src", imgArr[rnd]);
+            title.innerHTML = imgname[rnd];
+
+            document.getElementById("btn1").onclick = function(){
+                // 0 ~ 7 사이의 난수 발생
+                var rnd = parseInt(Math.random()*8);
+                photo.setAttribute("src", imgArr[rnd]);
+                title.innerHTML = imgname[rnd];
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="image" src="../img/chr07.gif" id="btn1">
+    <b style="margin-left: 100px;"><=이 녀석을 클릭해주세요</b>
+    <!-- <button type="image" src="../img/chr07.gif"></button> -->
+    <img src="" id="photo" style="max-width: 400px;">
+    <br><br>
+    <b id="title"></b>
+</body>
+</html>

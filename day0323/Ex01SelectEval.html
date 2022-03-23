@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SelectEval</title>
+    <link href="https://fonts.googleapis.com/css2?family=
+    Gamja+Flower&family=Jua&family=Lobster&family=
+    Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body * {
+            margin-top: 30px;
+            font-size: 1.4em;
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left: 100px;">
+        <input type="text" id="su1" style="width: 100px;">
+        <select name="" id="selop" style="width: 150px;">
+            <option selected disabled hidden>연산자</option>
+            <option value="+">+(덧셈)</option>
+            <option value="-">-(뺄셈)</option>
+            <option value="*">x(곱셈)</option>
+            <option value="/">/(나눗셈)</option>
+        </select>
+        <input type="text" id="su2" style="width: 100px;">
+        <br><br>
+        <div id="msg"></div>
+        
+        <script>
+            document.getElementById("selop").onchange=function(){
+                // alert(this.value);
+                var su1 = document.getElementById("su1").value;
+                var su2 = document.getElementById("su2").value;
+                var op = this.value; // 연산자
+
+                // 입력 체크
+                if(su1=='' || su2==''){
+                    alert("두개의 숫자를 모두 입력 후\n연산자를 선택해주세요")
+                    return;
+                }
+
+                // 숫자 체크
+                if(isNaN(su1) || isNaN(su2)){
+                    alert("두개의 숫자를 모두 숫자로 입력 후\n연산자를 선택해주세요");
+                    return;
+                }
+
+                // 연산 후 결과 출력
+                var result = eval(su1 + op + su2);
+                document.getElementById("msg").innerHTML = su1 + op + su2 + "=" + result;
+            }
+        </script>
+
+    </div>
+</body>
+</html>
