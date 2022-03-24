@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>LayoutType01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&
+    family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: auto;
+            box-sizing: border-box;
+        }
+        #wrap div {
+            font-family: "Nanum Gothic";
+        }
+        header .header {
+            height: 100px;
+            color: white;
+            text-transform: capitalize;
+            font-style: italic;
+            text-align: center;
+            background-color: rgb(112, 112, 112);
+        }
+        nav .nav {
+            height: 50px;
+            background-color: gray;
+            text-transform: capitalize;
+            color: white;
+            font-style: italic;
+            text-align: center;
+        }
+        .contents {
+            width: 1000px;
+            height: 700px;
+        }
+        .contents .aside {
+            width: 500px;
+            height: 700px;
+            text-transform: capitalize;
+            font-style: italic;
+            text-align: center;
+            color: rgb(105, 105, 105);
+            float: left;
+            background-color: #e4e3e3;
+        }
+        .contents .section {
+            width: 500px;
+            height: 700px;
+            text-transform: capitalize;
+            font-style: italic;
+            text-align: center;
+            color: rgb(105, 105, 105);
+            float: left;
+            background-color: #eceeee;
+        }
+        footer .footer {
+            height: 100px;
+            text-transform: capitalize;
+            color: white;
+            font-style: italic;
+            text-align: center;
+            background-color: rgb(56, 56, 56);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="header">header</div>
+        </header>
+        <nav>
+            <div class="nav">nav</div>
+        </nav>
+        <div class="contents">
+            <aside>
+                <div class="aside">aside</div>
+            </aside>
+            <section>
+                <div class="section">section</div>
+            </section>
+        </div>
+        <footer>
+            <div class="footer">footer</div>
+        </footer>
+    </div>
+</body>
+</html>
