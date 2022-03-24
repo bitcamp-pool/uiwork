@@ -9,6 +9,8 @@
         * {
             margin: auto;
             box-sizing: border-box;
+            font-family: "Gamja Flower";
+            font-size: 20px;
         }
         #wrap div {
             font-family: "Nanum Gothic";
@@ -36,9 +38,10 @@
         .contents .aside {
             width: 500px;
             height: 700px;
-            text-transform: capitalize;
-            font-style: italic;
-            text-align: center;
+            /* text-transform: capitalize;
+            font-style: italic; */
+            /* text-align: center; */
+            padding: 20px;
             color: rgb(105, 105, 105);
             float: left;
             background-color: #e4e3e3;
@@ -46,9 +49,10 @@
         .contents .section {
             width: 500px;
             height: 700px;
-            text-transform: capitalize;
-            font-style: italic;
-            text-align: center;
+            /* text-transform: capitalize; */
+            /* font-style: italic; */
+            /* text-align: center; */
+            padding: 30px;
             color: rgb(105, 105, 105);
             float: left;
             background-color: #eceeee;
@@ -61,7 +65,91 @@
             text-align: center;
             background-color: rgb(56, 56, 56);
         }
+        #tb {
+            /* border-top: 10px;
+            border-bottom: 10px;
+            border-left: 0;
+            border-right: 0;
+            border-style: solid;
+            border-color: rgb(195, 201, 207); */
+            padding: 10px;
+        }
+        #tb table {
+            /* border: 1px solid gray; */
+            width: 400px;
+            outline: none;
+        }
     </style>
+    <script>
+        var msg;
+        window.onload = function(){
+            var section = document.getElementById("sec-msg");   // 결과출력
+            var name = document.getElementById("name");         // 이름
+            var password = document.getElementById("password"); // 비밀번호
+            var email = document.getElementById("email");       // 이메일
+            var blood = document.getElementsByName("blood");    // 혈액형
+            var license = document.getElementById("license");   // 운전면허
+            var hobby = document.getElementsByName("hobby");    // 취미
+            var birthday = document.getElementById("birth");    // 생년월일
+            var emotion = document.getElementById("emotion");   // 감수성
+
+            // '결과출력' 버튼 이벤트 처리
+            document.getElementById("btn").onclick=function(){
+                // 버튼 클릭 시 초기화
+                msg = "";
+                msg += `안녕하세요^^<br>저는 ${name.value}입니다. 비밀번호는 
+                비밀이지만...;; ${password.value}이구요~ <br> 메일은 ${email.value}로
+                보내주시면 좋겠어요<br>참고로 저의 혈액형은 `;
+
+                // 혈액형
+                for(i=0; i<blood.length; i++){
+                    if(blood[i].checked){
+                        stringBuilder(blood[i].value)
+                    }
+                }
+                msg += "형 입니다. 운전면허는 ";
+
+                // 운전면허
+                if(license.checked)
+                    msg += "있";
+                else
+                    msg += "없";
+                msg += "습니다.<br> 저는 ";
+
+                // 취미
+                var n = 0;
+                for(i=0; i<hobby.length; i++){
+                    if(hobby[i].checked){
+                        n++;
+                        stringBuilder("[" + hobby[i].value + "] "); 
+                    }
+                }
+                if(n > 0)
+                    msg += "을 좋아해요~<br>";
+                else
+                    msg += "취미가 없습니다.";
+
+                // 생년월일
+                stringBuilder(birthday.value + "생 이구요. ");
+
+                // 감수성
+                
+                
+
+
+                section.innerHTML = msg;
+            }
+
+
+
+
+
+
+        }
+        function stringBuilder(str){
+            msg += str;
+        }
+    </script>
 </head>
 <body>
     <div id="wrap">
@@ -73,10 +161,76 @@
         </nav>
         <div class="contents">
             <aside>
-                <div class="aside">aside</div>
+                <div class="aside">aside<br>
+                    <div id="tb">
+                        <table>
+                            <caption style="font-size: 30px; margin-bottom: 30px;">개인정보</caption>
+                            <tr>
+                                <th>이름</th>
+                                <td><input id="name" type="text" placeholder="input name"></td>
+                            </tr>
+                            <tr>
+                                <th>비밀번호</th>
+                                <td><input id="password" type="password"  placeholder="input password"></td>
+                            </tr>
+                            <tr>
+                                <th>e-mail</th>
+                                <td>
+                                    <input id="email" type="email">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>혈액형</th>
+                                <td>
+                                    <input type="radio" name="blood" value="A">A형&nbsp&nbsp;
+                                    <input type="radio" name="blood" value="B" checked>B형&nbsp&nbsp;
+                                    <input type="radio" name="blood" value="AB">AB형&nbsp&nbsp;
+                                    <input type="radio" name="blood" value="O">O형&nbsp&nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>운전면허</th>
+                                <td>
+                                    <input id="license" type="checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>취미</th>
+                                <td>
+                                    <input type="checkbox" name="hobby" value="게임" checked>게임&nbsp;&nbsp;
+                                    <input type="checkbox" name="hobby" value="낚시">낚시&nbsp;&nbsp;
+                                    <input type="checkbox" name="hobby" value="여행">여행&nbsp;&nbsp;
+                                    <input type="checkbox" name="hobby" value="음악감상">음악감상&nbsp;&nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>생년월일</th>
+                                <td><input id="birth" type="date" value="2022-01-01"></td>
+                            </tr>
+                            <tr>
+                                <th>감수성</th>
+                                <td>
+                                    <progress value="17" min="0" max="100"></progress>
+                                    <button type="button">확인</button>
+                                    <span style="margin-left: 20px;"><b id="emotion" style="font-size: 30px;">17</b></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button id="btn" style="width: 150px; height: 50px;"><b>결과출력</b></button>
+                    </div>
+                </div>
             </aside>
             <section>
-                <div class="section">section</div>
+                <div class="section">section<br>
+                <span id="sec-msg" style="font-size: 1.9em; color: black;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Reprehenderit excepturi rerum corporis, harum error, 
+                    minus cum incidunt, aliquam dolores sunt praesentium 
+                    obcaecati alias nesciunt in libero magni vero placeat aliquid!
+                </span>
+                </div>
             </section>
         </div>
         <footer>
