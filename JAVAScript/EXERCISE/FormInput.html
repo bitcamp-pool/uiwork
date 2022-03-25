@@ -49,6 +49,7 @@
         .contents .section {
             width: 500px;
             height: 700px;
+            padding: 100px;
             /* text-transform: capitalize; */
             /* font-style: italic; */
             /* text-align: center; */
@@ -56,6 +57,9 @@
             color: rgb(105, 105, 105);
             float: left;
             background-color: #eceeee;
+        }
+        .message {
+            margin-top: 90px;
         }
         footer .footer {
             height: 100px;
@@ -130,21 +134,29 @@
                     msg += "취미가 없습니다.";
 
                 // 생년월일
-                stringBuilder(birthday.value + "생 이구요. ");
-
-                // 감수성
-                
-                
-
+                stringBuilder(birthday.value + "일생 이구요. ");
 
                 section.innerHTML = msg;
             }
-
-
-
-
-
-
+            // 감수성
+            var prog = document.getElementById("prog");
+            console.log("called");
+            document.getElementById("btnpro").click=function(){
+                var rnd = parseInt(Math.random()*100) + 1;
+                // progress바 움직이기
+                var n = 0;
+                var interval = setInterval(function(){
+                    n++;
+                    console.log(n);
+                    prog.value = n;
+                    document.getElementById("emotion").value = n;
+                // 100 에서 멈춤     
+                if(n >= rnd){
+                    // interval 멈춤
+                    clearInterval(interval);
+                }
+                }, 10); // 0.01초 마다 호출
+            }
         }
         function stringBuilder(str){
             msg += str;
@@ -210,8 +222,8 @@
                             <tr>
                                 <th>감수성</th>
                                 <td>
-                                    <progress value="17" min="0" max="100"></progress>
-                                    <button type="button">확인</button>
+                                    <progress id="prog" value="17" min="0" max="100"></progress>
+                                    <button id="btnpro" type="button">확인</button>
                                     <span style="margin-left: 20px;"><b id="emotion" style="font-size: 30px;">17</b></span>
                                 </td>
                             </tr>
@@ -224,12 +236,14 @@
             </aside>
             <section>
                 <div class="section">section<br>
-                <span id="sec-msg" style="font-size: 1.9em; color: black;">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Reprehenderit excepturi rerum corporis, harum error, 
-                    minus cum incidunt, aliquam dolores sunt praesentium 
-                    obcaecati alias nesciunt in libero magni vero placeat aliquid!
-                </span>
+                    <div class="message">
+                        <span id="sec-msg" style="font-size: 1.2em; color: black;">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Reprehenderit excepturi rerum corporis, harum error, 
+                            minus cum incidunt, aliquam dolores sunt praesentium 
+                            obcaecati alias nesciunt in libero magni vero placeat aliquid!
+                        </span>
+                    </div>
                 </div>
             </section>
         </div>
