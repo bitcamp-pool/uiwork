@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=
+    Gamja+Flower&family=Jua&family=Lobster&family=
+    Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        body * {
+            font-size: 1.2rem;
+            font-family: 'Jua';
+        }
+    </style>
+    <script>
+        // 처음 load시 호출되는 함수(window.onload)
+        // document.ready(function(){}) : 이렇게 써도 됨
+        $(function(){
+            // alert("처음입니다.");
+            $("div.apple").css("color", "red");
+            $("div.apple>div.banana").css("font-size", "25px"); // > 자식만 해당
+            $(".banana").css("border", "3px dotted green");
+
+            // 방법1 : 3개의 style 적용 시 이어붙여도 된다.
+            $("div#kiwi").css("color", "magenta").css("font-size", "3em").
+            css("background-color", "#ffc");
+
+            // 방법2 : 여러개의 style 변경 시
+            $("span.banana").css({
+                "color":"gray",
+                "border":"5px inset yello",
+                "font-size": "4em",
+                "background-color" : "cyan"
+            });
+            // span.banana를 배경색을 얻어서 b.apple에 적용해 보자
+            $("b.apple").css("background-color", $("span.banana").css("background-color"));
+
+            // #kiwi의 글자색을 얻어서 #orange 에 적용
+            $("#orange").css("color", $("#kiwi").css("color"));
+
+            // #img1의 src에 이미지 넣기(attr:속성 변경 시)
+            $("#img1").attr("src", "../img/ani12.gif");
+
+            // 모든 img 태그에 이미지 넣기
+            // $("img").attr("src", "../연예인사진/12.jpg");
+
+            // img 태그중 class 명이 myimg인 경우(여러개의 속성 변경 시)
+            $(".myimg").attr({
+                "src":"../img/ani12.gif",
+                "width":"200",
+                "height":"240", // 속성이므로 단위(px) 생략
+                "border":"2"
+            });
+        })
+    </script>
+    
+
+</head>
+<body>
+    <!--JQuery는 교재 454p ~ 
+    jquery는 일종의 자바스크립트 라이브러리이다.
+    제이쿼리를 사용하면 자바스크립트의 코드를 상당히 줄일 수 있다.
+    jquery.com
+
+    css함수: style 변경(인자가 1개 일때 css값 반환)
+    attr함수 : 속성 변경(인자가 1개 일때 attr값 반환)
+    -->
+    <div class="apple">
+        Div apple class
+        <div class="banana">
+            Div apple 안에 banana Class
+        </div>
+    </div>
+
+    <b class="apple">B tag apple Class</b><br>
+    <b id="orange">B Tag id가 orange</b><br>
+    <span class="banana">Span Tag banana Class</span><br>
+    <div id="kiwi">
+        Div id가 kiwi
+    </div>
+    <span class="apple banana">
+        span tag class가 2개(apple, banana)
+    </span>
+    <br><br>
+    <img src="" id="img1" alt="">
+    <img src="" class="myimg" alt="">
+    <img src="" class="myimg" alt="">
+    <img src="" class="myimg" alt="">
+</body>
+</html>

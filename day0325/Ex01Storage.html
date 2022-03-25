@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=
+    Gamja+Flower&family=Jua&family=Lobster&family=
+    Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body * {
+            font-size: 1.2rem;
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+<body>
+    <!--
+        클라이언트의 디스크에 소량의 데이터를 저장해 두기 위한 기억공간(Cookie와 비슷)
+        키/값 쌍으로 자료를 저장하고 키를 이용하여 자료를 조회한다.
+        Local Storage : 반영구적 보관, 크기는 약 5MB
+        Session Storage : 세션이 유효한 만큼만 보관
+    -->
+    <button id="btnAdd" type="button">저장</button>
+    <b>Key값(영문) :</b>
+    <input type="text" id="mykey" style="width: 100px;">
+    &nbsp;&nbsp;&nbsp;
+    <b>저장할 값 :</b>
+    <input type="text" id="mydata" style="width: 130px;">
+    <br><br>
+    <button id="btnDel" type="button">삭제</button>
+    <button id="btnAllDel" type="button">전체삭제</button>
+
+    <button id="btnView" type="button">내용보기</button>
+    <div id="view"></div>
+
+    <script>
+        document.getElementById("btnAdd").onclick=function(){
+            // 스토리지에 저장하는 방법 3가지
+            // localStorage.setItem("name", "이효리"); // 방법1
+            // localStorage.age="23세";                // 방법2
+            // localStorage["addr"] = "서울강남";      // 방법3
+            mykey = document.getElementById("mykey").value;
+            mydata = document.getElementById("mydata").value;
+
+            localStorage.setItem(mykey, mydata); // 입력 저장
+        }
+        document.getElementById("btnDel").onclick=function(){
+            mykey = document.getElementById("mykey").value;
+            // 삭제(입력한 키 값을 찾아서 삭제)
+            localStorage.removeItem(mykey);
+        }
+        document.getElementById("btnAllDel").onclick=function(){
+            localStorage.clear(); // 전체삭제
+        }
+        document.getElementById("btnView").onclick=function(){
+            // 저장된 localStorage값 가져오기(key값을 알아야 함)
+            var s = "로컬스토리지 값 가져오기<br>";
+            // s+="name: " + localStorage.getItem("name") + "<br>";
+            // s+="age: " + localStorage.age + "<br>";
+            // s+="addr: " + localStorage["addr"] + "<br>";
+            // s+="id: " + localStorage.getItem("id") + "<br>";
+            // s+="flower: " + localStorage.flower + "<br>";
+
+            // 수정 : 자동검색해서 존재하는 것만 가져오기
+            for(i=0; i<localStorage.length; i++){
+                var k = localStorage.key(i);
+                s+=k + ":" + localStorage.getItem(k) + "<br>";
+            }
+
+            document.getElementById("view").innerHTML =s;
+        }
+    </script>
+</body>
+</html>
