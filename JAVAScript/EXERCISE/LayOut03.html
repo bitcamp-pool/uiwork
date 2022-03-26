@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>LAYOUT03</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Gothic&family=
+    Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <style>
+        * {box-sizing: border-box;}
+        h1,h2,h3,h4,h5,h6 {margin: 0; padding: 0; font-weight: normal;}
+        p,ul,ol,li,dl,dt,dd {
+            list-style-image: none;
+            list-style-position: outside;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {font-size: 2em;}
+        body {
+            margin: 0; padding: 0;
+            color: #666;
+            font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic';
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: -.05em;            
+        }
+        .area { 
+            /* display: none; */
+            float: left;
+            padding-left: 10px;
+            background-color: #666; 
+            color: white;
+        }
+        header, section, footer, article, nav, aside { display: block;}
+        .header_wrap {
+            position: fixed;
+            width: 100%;
+            height: 97px;
+            background-color: rgb(247, 245, 243);
+            border-bottom: 1px solid #666;
+            overflow: hidden;
+            z-index: 20;
+        }
+        header {
+            position: relative;
+            width: 1080px;
+            height: inherit;
+            margin: 0 auto;
+            background-color: rgb(222, 222, 222);
+        }
+        header .inner1 {
+            position: absolute;
+            top: 33px;
+            left: 0px;
+            width: 100px;
+            height: 50px;
+        }
+        header .inner2 {
+            position: absolute;
+            top: 33px;
+            right: 0px;
+            width: 100px;
+            height: 50px;
+        }
+        .nav_wrap {
+            position: absolute;
+            top: 33px;
+            left: 130px;
+            min-width: 800px;
+            height: 97px;
+            background: #fff;
+            overflow: hidden;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+            /* transition: all .3s ease; */
+        }
+        .nav_wrap nav {
+            display: inline-block;
+            margin-left: -60px;
+        }
+        .nav_wrap .m_menu li {
+            position: relative;
+            float: left;
+            width: auto;
+            margin: 15px 25px 15px 25px;
+            font-weight: 500;
+            font-family: 'Gamja Flower';
+            font-size: x-large;
+        }
+        .nav_wrap .m_menu li:hover {
+            font-size: 40px;
+            color:  crimson;
+        }
+        .contents_wrap {
+            position: relative;
+            min-height: 500px;
+            padding-top: 97px;
+            border-bottom: 1px solid #666;
+        }
+        .inner {
+            width: 1080px;
+            margin: 0 auto;
+            background-color: rgb(222, 222, 222);
+        }
+        aside {
+            float: left;
+            width: 300px;
+            height: 750px;
+            border-right: 1px solid #666;
+        }
+        section {
+            height: 750px;
+        }
+        .footer_wrap {
+            color: #666;
+            background-color: rgb(247, 245, 243);
+        }
+        .footer_wrap footer .inner {
+            height: 409px;
+            border: 0 1px 1px 1px #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_wrap">
+        <span class="area">header_wrap ></span>
+        <header>
+            <span class="area">header ></span> 
+            <div class="inner1">
+                <span class="area">inner1 ></span>
+            </div>
+            <div class="inner2">
+                <span class="area">inner2 ></span>
+            </div>
+            <div class="nav_wrap">
+                <span class="area">nav ></span>
+                <nav>
+                    <ul class="m_menu">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li class>JAVASCRIPT</li>
+                        <li class>JAVA</li>
+                        <li class>PYTHON</li>
+                        <li class>GIT</li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <div class="contents_wrap">
+        <span class="area">contents_wrap ></span>
+        <div class="inner">
+            <aside>
+                <span class="area">aside ></span>
+            </aside>
+            <section>
+                <span class="area">section ></span>
+            </section>
+        </div>
+    </div>
+    <div class="footer_wrap">
+        <span class="area">footer_wrap ></span>
+        <footer>
+            <div class="inner">
+                <span class="area">footer ></span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
