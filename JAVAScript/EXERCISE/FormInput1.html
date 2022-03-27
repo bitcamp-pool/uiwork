@@ -135,21 +135,22 @@
 
                 // 생년월일
                 stringBuilder(birthday.value + "일생 이구요. ");
-
+                // 감수성
+                stringBuilder(`<br>감성지수는 ${prog.value} 입니다. 모두 행복한 하루되세여~~`);
                 section.innerHTML = msg;
             }
-            // 감수성
+            // 감수성 확인버튼 이벤트
             var prog = document.getElementById("prog");
-            console.log("called");
-            document.getElementById("btnpro").click=function(){
+            console.log(prog.value);
+            document.getElementById("btnpro").onclick=function(){
                 var rnd = parseInt(Math.random()*100) + 1;
                 // progress바 움직이기
                 var n = 0;
                 var interval = setInterval(function(){
                     n++;
-                    console.log(n);
+                    // console.log(n);
                     prog.value = n;
-                    document.getElementById("emotion").value = n;
+                    document.getElementById("emotion").innerHTML = n;
                 // 100 에서 멈춤     
                 if(n >= rnd){
                     // interval 멈춤

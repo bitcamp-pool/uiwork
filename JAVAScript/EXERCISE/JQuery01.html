@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Gothic&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <style>
+        body * {
+            margin: 0; padding: 0;
+            font-family: "Gamja Flower";
+            font-size: 1.2em;
+        }
+        .header_wrap {
+            width: 100%;
+            height: 100px;
+            border-bottom: 1px solid #666;
+        }
+        .content_wrap {
+            width: 100%;
+            height: 900px;
+            border-bottom: 1px solid #666;
+        }
+        .footer_wrap {
+            width: 100%;
+            height: 100px;
+            border-bottom: 1px solid #666;
+        }
+        .inner {
+            width: 1080px;
+            height: inherit;
+            margin: auto;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+    </style>
+    <style>
+        /* form input {
+            display: block;
+        } */
+    </style>
+
+    <script>
+        window.onload=function(){
+
+        };
+    </script>
+</head>
+<body>
+    <div class="header_wrap">
+        <div class="inner">header
+        </div>
+    </div>
+    <div class="content_wrap">
+        <div class="inner">content
+            <div>
+                <form name="frm">
+                    <h3>이미지를 선택하세요</h3>
+                    <input type="radio" name="photo" checked value="../../연예인사진/10.jpg">김태희
+                    <input type="radio" name="photo" value="../../연예인사진/13.jpg">박신혜
+                    <input type="radio" name="photo" value="../../연예인사진/15.jpg">설현
+                    <input type="radio" name="photo" value="../../연예인사진/12.jpg">박보영
+                    <br><br>
+                    <h3>메시지 : <input type="text" name="message"></h3>
+                    <br>
+                    <button type="button" id="btn">출력</button>
+                </form>
+
+                <p id="input_msg" style="margin-left: 120px;">"입력된 메시지"</p>
+                <div style="margin-left: 120px; width: 300px; height: 300px; border: 1px solid gray;">
+                    <img src="" id="out_img" alt="선택된 이미지">
+                </div>
+                <script>
+                    document.getElementById("btn").onclick=function(){
+                        document.getElementById("input_msg").innerHTML = `입력 : "${frm.message.value}"`;
+                        document.getElementById("out_img").setAttribute("src", frm.photo.value);
+                    };
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="footer_wrap">
+        <div class="inner">footer
+        </div>
+    </div>
+</body>
+</html>
