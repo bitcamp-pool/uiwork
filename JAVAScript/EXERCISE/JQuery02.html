@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리02</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Gothic&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <style>
+        body * {
+            margin: 0; padding: 0;
+            font-family: "Gamja Flower";
+            font-size: 1.2em;
+        }
+        .header_wrap {
+            width: 100%;
+            height: 100px;
+            border-bottom: 1px solid #666;
+        }
+        .content_wrap {
+            width: 100%;
+            height: 900px;
+            border-bottom: 1px solid #666;
+        }
+        .footer_wrap {
+            width: 100%;
+            height: 100px;
+            border-bottom: 1px solid #666;
+        }
+        .inner {
+            width: 1080px;
+            height: inherit;
+            margin: auto;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+    </style>
+    <style>
+        div.c {
+            position: absolute;
+            left: 100px;
+            top: 600px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        $(function(){
+            $("div.a>img").css({
+                "width":"200px",
+                "height":"240px",
+                "border":"4px solid orange"
+            });
+            $("div.b>img").css({
+                "width":"120px",
+                "hight":"120px",
+                "border":"2px solid green",
+                "border-radius":"100px"
+            });
+            $("div.a>img:eq(0)").attr("src", "../../연예인사진/19.jpg");
+            $("div.a>img").eq(1).attr("src", "../../음식이미지/감자볼.jpg");
+            $("div.b>img:even").attr("src", "../../jquery_image/11.png");
+            $("div.b>img:odd").attr("src", "../../jquery_image/a02.png");
+            $("div.a>img:last").css("box-shadow", "5px 5px 5px gray");
+            $("div.a>img:gt(1)").attr("src", "../../div_img/beauty2.jpg");
+
+            $("img").mouseover(function(){
+                var myimg = $(this).attr("src");
+                $("div.c>img").attr("src", myimg);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header_wrap">
+        <div class="inner">header
+        </div>
+    </div>
+    <div class="content_wrap">
+        <div class="inner">content
+            <br>
+            <div class="a">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+            <div class="b">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+            <div class="c">
+                111
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="footer_wrap">
+        <div class="inner">footer
+        </div>
+    </div>
+</body>
+</html>

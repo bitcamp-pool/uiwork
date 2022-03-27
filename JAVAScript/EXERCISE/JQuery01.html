@@ -33,16 +33,41 @@
             border-right: 1px solid #666;
         }
     </style>
-    <style>
-        /* form input {
-            display: block;
-        } */
-    </style>
-
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script>
-        window.onload=function(){
+        $(
+            function(){
+                // 개별 저장
+                $("div.apple").css("color", "red");
+                $("div.apple>div.banana").css("font-size", "25px");
+                $(".banana").css("border", "3px dotted green");
+                
+                // 메서드 체인으로 저장
+                $("div#kiwi").css("color", "magenta").css("font-size", "3em").
+                    css("background-color", "#ffc");
 
-        };
+                // 중괄호 스코프 저장
+                $("span.banana").css({
+                    "color":"gray",
+                    "border":"5px inset yello",
+                    "font-size":"4em",
+                    "background-color":"cyan"
+                });
+                
+                // 읽어오기(get) 저장하기(set)
+                $("b.apple").css("background-color",$("span.banana").css("background-color")); 
+                $("#orange").css("color", $("#kiwi").css("color"));
+
+                // 속성(Attr) 변경
+                $("#img1").attr("src", "../../img/ani12.gif");
+
+                $(".myimg").attr({
+                    "src":"../../img/ani12.gif",
+                    "width":"200",
+                    "border":'2'
+                });
+            }
+        );
     </script>
 </head>
 <body>
@@ -52,30 +77,29 @@
     </div>
     <div class="content_wrap">
         <div class="inner">content
-            <div>
-                <form name="frm">
-                    <h3>이미지를 선택하세요</h3>
-                    <input type="radio" name="photo" checked value="../../연예인사진/10.jpg">김태희
-                    <input type="radio" name="photo" value="../../연예인사진/13.jpg">박신혜
-                    <input type="radio" name="photo" value="../../연예인사진/15.jpg">설현
-                    <input type="radio" name="photo" value="../../연예인사진/12.jpg">박보영
-                    <br><br>
-                    <h3>메시지 : <input type="text" name="message"></h3>
-                    <br>
-                    <button type="button" id="btn">출력</button>
-                </form>
-
-                <p id="input_msg" style="margin-left: 120px;">"입력된 메시지"</p>
-                <div style="margin-left: 120px; width: 300px; height: 300px; border: 1px solid gray;">
-                    <img src="" id="out_img" alt="선택된 이미지">
+            <br>
+            <div class="apple">
+                Div apple class
+                <div class="banana">
+                    Div apple class > Div banana Class
                 </div>
-                <script>
-                    document.getElementById("btn").onclick=function(){
-                        document.getElementById("input_msg").innerHTML = `입력 : "${frm.message.value}"`;
-                        document.getElementById("out_img").setAttribute("src", frm.photo.value);
-                    };
-                </script>
             </div>
+
+            <b class="apple">B tag apple Class</b><br>
+            <b id="orange">B Tag id가 orange</b><br>
+            <span class="banana">Span Tag banana Class</span><br>
+
+            <div id="kiwi">
+                Div id가 kiwi
+            </div>
+            <span class="apple banana">
+                span tag class가 2개(apple, banana)
+            </span>
+            <br><br>
+            <img src="" id="img1" alt="">
+            <img src="" class="myimg" alt="">
+            <img src="" class="myimg" alt="">
+            <img src="" class="myimg" alt="">
         </div>
     </div>
     <div class="footer_wrap">
