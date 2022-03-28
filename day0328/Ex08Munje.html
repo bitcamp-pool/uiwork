@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JQueryFormTag</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Gothic&family=
-    Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Gothic&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <style>
         body, html, select, input {
@@ -64,9 +63,12 @@
         }
         .png {
             margin-top: 10px;
-            display: inline-block;
-            width: 196px;
-            height: 196px;
+            /* display: inline-block; */
+            float: left;
+            width: 150px;
+            height: 150px;
+            
+            margin-right: 30px;
             border: 1px solid #666;
         }
         .btn {
@@ -79,11 +81,12 @@
             $(".btn").click(function(){
                 // 글자색
                 var color = $("input[name='colors']:checked").val();
-                // console.log(color);
+                // console.log(`글자색 : ${color}`);
                 $(".msg").css("color", color);
                 
                 // 폰트
                 var font = $("option[name='fonts']:selected").val();
+                // console.log(`글꼴 : ${font}`);
                 $(".msg").css("font-family", font);
 
                 // 초기화
@@ -92,31 +95,35 @@
 
                 // 스타일
                 $("input[name='styles']:checked").each(function(){
-                    if($(this).val()=="bold")
-                        $(".msg").css("font-weight", "bold");
-                    else
-                        $(".msg").css("font-weight", "normal");
+                    var styleType = $(this).val();
+                    console.log(styleType);
 
-                    if($(this).val()=="italic")
+                    if(styleType=="bold")
+                        $(".msg").css("font-weight", "bold");
+                    // else
+                    //     $(".msg").css("font-weight", "normal");
+
+                    if(styleType=="italic")
                         $(".msg").css("font-style", "italic");
-                    else
-                        $(".msg").css("font-style", "normal");
+                    // else
+                    //     $(".msg").css("font-style", "normal");
                 });
 
-                
                 // 이미지 
                 // $("img:eq(0)").attr("src", "../jquery_image/01.png");
                 // 초기화
                 for(i=0; i<3; i++){
-                    $("img:eq(i)").attr("src", "");
+                    $(`img:eq(${i})`).attr("src", "");
                 }
-                console.log($("img:eq(0)").attr("src"));
 
-                $("input[name='imgs']:checked").each(function(index){
+                $("input[name='imgs']:checked").each(function(){
                     var src = $(this).val();
-                    // var idx = index + 1;
-                    // console.log(idx, src);
-                    $("img:eq(" + index + ")").attr("src", src);
+                    console.log(src);
+                    for(var i=0; i<3; i++){
+                        if(src == $(`img:eq(${i})`).attr("alt")){
+                            $(`img:eq(${i})`).attr("src", src);
+                        }
+                    }
                 });
             });
         });
@@ -176,9 +183,11 @@
             <div class="msg">
                 오늘은 힘든 월요일 입니다.
             </div>
-            <img class="png" src=""></img>
-            <img class="png" src=""></img>
-            <img class="png" src=""></img>
+            <div style="width: 600px; height: 200px; margin-top: 10px; margin-left: 40px;">
+                <img class="png" src="" alt="../jquery_image/01.png"></img>
+                <img class="png" src="" alt="../jquery_image/02.png"></img>
+                <img class="png" src="" alt="../jquery_image/03.png"></img>
+            </div>
         </div>
     </div></div>
     <div class="footer_wrap"><div class="inner"></div></div>
