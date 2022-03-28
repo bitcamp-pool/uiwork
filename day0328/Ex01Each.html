@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>  
+    <style>
+        body *{
+            font-size: 1.2rem;
+            font-family: 'Jua';
+        }
+        .bg_0_line{background-color: orange; width: 500px; border: 3px solid green;}
+        .bg_1_line{background-color: pink; width: 500px; border: 3px dotted green;}
+        .bg_2_line{background-color: cyan; width: 500px; border: 3px inset green;}
+        .bg_3_line{background-color: yellow; width: 500px; border: 3px dashed green;}
+    </style>
+</head>
+<body>
+    <h2>Each 반목문 연습</h2>
+    <ul>
+        <li>Hava a Nice Day!!!!</li>
+        <li>Hava a Nice Day!!!!</li>
+        <li >Hava a Nice Day!!!!</li>
+        <li>Hava a Nice Day!!!!</li>
+    </ul>
+    <script>
+        // selector 의 개수만큼 자동 반복 each
+        $("ul li").each(function(index, item){
+            // index : li의 해당 요소 번호, item은 해당 요소
+            console.log($(this).text(), index, item);
+            $(this).addClass("bg_" + index + "_line");
+        });
+    </script>
+</body>
+</html>

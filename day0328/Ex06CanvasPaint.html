@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>  
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.3rem;
+            font-family: 'Jua';
+        }
+        canvas {
+            cursor: crosshair;
+        }
+        #clr {
+            margin-left: 300px;
+        }
+        #clr div {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            cursor: pointer;
+            float: left;
+            margin-left: 3px;
+        }
+        #clear, #eraser {
+            text-decoration: none;
+            width: 130px;
+            height: 40px;
+            line-height: 40px;
+            border: 2px solid green;
+            border-radius: 50px;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 20px;
+            box-shadow: 5px 5px 5px gray;
+        }
+    </style>
+    <script>
+        $(function(){
+            var can=document.getElementById("can");
+            var ctx=can.getContext("2d");
+
+            var preX, preY; // 선 그릴때 현재 좌료 저장할 변수
+            var draw=false; // 마우스를 움직일 때 draw가 true일 경우만 그리기
+
+            // 기본 선 종류
+            ctx.strokeStyle="black";
+            ctx.lineCap="round";    // 선의 끝 모양 둥글게.. 선이 이어졌을때 자연스럽게 ...
+            ctx.lineWidth=2;
+
+            // 캔바스 이벤트
+            $("#can").mousedown(function(e){
+                draw=true;
+                // 그림이 그려지는 시작 위치 지정
+                preX=e.pageX; // 현재 마우스 X좌표
+                preY=e.pageY; // 현재 마우스 Y좌표
+            });
+            $("#can").mouseup(function(e){
+                draw=false;
+            });
+            var dx = 10;
+            var dy = 60;
+            $("#can").mousemove(function(e){
+                if(draw){ // 마우스가 클릭된 상태에서 움직일 때만 선을 그린다.
+                    ctx.beginPath();
+                    ctx.moveTo(preX-dx, preY-dy); // 마우스를 클릭한 위치를 시작좌표로 이동
+                    ctx.lineTo(e.pageX-dx, e.pageY-dy); // 직전 좌표로부터 현재좌표까지 선을 긋는다
+                    ctx.stroke(); // 실제로 선을 그리는 함수
+                    ctx.closePath();
+                }
+                // 마우스가 이동되기 전 현재좌표 저장
+                preX = e.pageX;
+                preY = e.pageY;
+            });
+
+            // 색상표 클릭 시 선색 변경하기
+            $("#clr>div").click(function(){
+                ctx.lineWidth=2; // 초기화
+                // 배경색을 얻는다.
+                var color = $(this).css("background-color");
+                // 선색으로 변경
+                ctx.strokeStyle=color;
+            });
+
+            // 화면 지우기
+            $("#clear").click(function(){
+                // 채우기색을 흰색으로 변경 후 전체 사각형을 그린다
+                ctx.fillStyle="#ffffff";
+                ctx.fillRect(0, 0, can.width, can.height); // 채워진 사각형
+            });
+
+            // 지우개
+            $("#eraser").click(function(){
+                ctx.lineWidth = 10; // 색상표 클리 시 초기화(2로..)
+                ctx.strokeStyle="#ffffff"; // 선색을 흰색으로
+            });
+        });
+    </script>
+</head>
+<body>
+    <b>Canvas를 이용한 간단한 그림판</b><br><br>
+    <canvas id="can" width="900" height="500" style="border:1px solid black"></canvas>
+
+    <h3>색상표</h3>
+    <div id="clr">
+        <div style="background-color: orange;"></div>
+        <div style="background-color: green;"></div>
+        <div style="background-color: greenyellow;"></div>
+        <div style="background-color: crimson;"></div>
+        <div style="background-color: magenta;"></div>
+        <div style="background-color: maroon;"></div>
+        <div style="background-color: darkblue;"></div>
+        <div style="background-color: darkcyan;"></div>
+    </div>
+    <div id="clear">화면초기화</div>
+    <div id="eraser">지우개</div>
+</body>
+</html>

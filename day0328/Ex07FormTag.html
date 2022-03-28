@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>  
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-size: 1.3rem;
+            font-family: 'Jua';
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid gray;
+        }
+        div.msg {
+            position: absolute;
+            left: 0px;
+            top: 300px;
+            margin: 10px;
+            width: 500px;
+            height: 100px;
+            /* border: 1px solid gray; */
+        }
+    </style>
+    <script>
+        $(function(){
+            $("input:text, input:password").focus(function(){
+                $(this).css("background", "#ffc");
+            });
+
+            // 포커스가 벗어날 때 발생
+            $("input:text, input:password").blur(function(){
+                $(this).css("background", "#fff");
+            });
+
+            $("#result").click(function(){
+                var s=`[결과확인]<br><br>
+                    이 름 : ${$("#txtname").val()}<br>
+                    비 번 : ${$("#txtpass").val()}<br>`;
+                s+="운전면허 : ";
+                // 체크박스의 체크상태를 알아낸다
+                var lic = $("#cblic").is(":checked"); // 체크상태에 따라 true/false 반환
+                if(lic)
+                    s+="있음<br>";
+                else
+                    s+="없음<br>";
+                    
+                // radio
+                s+="고 향 : " + $("input[name='gohang']:checked").val() + "<br>";
+
+                // checkbox
+                s+="IT언어 : ";
+                var cnt = $("input[name='it']:checked").length; // 선택한 개수 구하기
+                if(cnt==0)
+                    s+="가능한 IT 언어 없음!";
+                else {
+                    $("input[name='it']:checked").each(function(){
+                        s+="[" + $(this).val() + "]&nbsp";
+                    });
+                    s+=" 등 가능함!";
+                }
+                s+="<br>";
+                
+                // 무조건 마지막 줄
+                $("div.msg").html(s);
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <table >
+        <tr>
+            <th width="100">이름</th>
+            <td width="400">
+                <input type="text" id="txtname" style="width: 100px;">
+            </td>
+        </tr>
+        <tr>
+            <th width="100">비번</th>
+            <td width="200">
+                <input type="password" id="txtpass" style="width: 100px;">
+            </td>
+        </tr>
+        <tr>
+            <th width="100">운전면허</th>
+            <td width="200">
+                <input type="checkbox" id="cblic">
+            </td>
+        </tr>
+        <tr>
+            <th width="100">고 향</th>
+            <td width="200">
+                <input type="radio" name="gohang" value="서울" checked>서울&nbsp;
+                <input type="radio" name="gohang" value="부산";>부산&nbsp;
+                <input type="radio" name="gohang" value="경기도";>경기도&nbsp;
+                <input type="radio" name="gohang" value="제주도";>제주도&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <th width="100">IT언어</th>
+            <td width="200">
+                <input type="checkbox" name="it" value="HTML">HTML&nbsp;
+                <input type="checkbox" name="it" value="JavaScript">JavaScript<br>
+                <input type="checkbox" name="it" value="Java">Java&nbsp;
+                <input type="checkbox" name="it" value="SpringBoot">SpringBoot<br>
+                <input type="checkbox" name="it" value="React">React&nbsp;
+                <input type="checkbox" name="it" value="JQuery">JQuery&nbsp;
+                
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td id="result" colspan="2" align="center" bgcolor="tomato" 
+                style="color: white; cursor: pointer;">
+                결과확인
+            </td>
+        </tr>
+        <div class="msg">111</div>
+    </table>
+</body>
+</html>
