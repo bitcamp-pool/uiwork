@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>MenuNode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <style>
+       * { 
+            margin:  0;
+            padding: 0;
+            font-family: 'Gamja Flower';
+            font-size: 1.3rem;
+        }
+        .header, .footer {
+            position: sticky;
+            top: 0;
+            left: 0;
+            height: 100px;
+            border-bottom: 1px solid #666;
+            
+        }
+        .contents {
+            position: sticky;
+            top: 100px;
+            left: 0;
+            height: 800px;
+            border-bottom: 1px solid #666;
+        }
+        .inner {
+            width: 1080px;
+            height: inherit;
+            margin: auto;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+        .box {
+            width: 350px;
+            height: 500px;
+            margin-left: 100px;
+            border: 1px solid #666;
+        }
+        ul, li {
+            list-style: none;
+        }
+        ul>li {
+            font-size: 50px;
+            cursor: pointer;
+        }
+        ol>li {
+            font-size: 30px;
+            background-color: white;
+            color: black;
+            
+        }
+    </style>
+    <script>
+        $(function(){
+            $("ol").children().hide();
+            $("ol").parent().click(function(){
+                // $(this).css("transform", "translate(10px,10px)");
+                $(this).css("color", "white").css("background-color", "crimson");
+                $(this).children().find("li").show('slow');
+
+                $(this).siblings().find("li").hide('slow');
+                $(this).siblings().css("color", "black").css("background-color", "white");
+                // $(this).siblings().css("color", "black").css("transform", "translate(0,0)");
+                // alert($(this).children().text());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header"><div class="inner">header</div></div>
+    <div class="contents">
+        <div class="inner"><span style="position: relative; display: block;">contents</span> 
+            <div class="box">
+                <ul style="margin-left: 50px; margin-top: 20px;">
+                    <li>JAVA
+                        <ol>
+                            <li>자바란 무엇인가?</li>
+                            <li>변수와 자료형</li>
+                            <li>제어문</li>
+                            <li>배열</li>
+                            <li>객체</li>
+                        </ol>
+                    </li>
+                    <li>HTML/CSS
+                        <ol>
+                            <li>http프로토콜이란?</li>
+                            <li>html5</li>
+                            <li>css3</li>
+                        </ol>
+                    </li>
+                    <li>JAVASCRIPT
+                        <ol>
+                            <li>스크립트언어란?</li>
+                            <li>변수와 자료형</li>
+                            <li>제어문</li>
+                        </ol>
+                    </li>
+                    <li>JQUERY
+                        <ol>
+                            <li>선택자</li>
+                            <li>이벤트 처리</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer"><div class="inner">footer</div></div>
+</body>
+</html>
