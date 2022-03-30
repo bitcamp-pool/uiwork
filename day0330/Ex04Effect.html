@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
+    rel="stylesheet">
+<!--스타일-->
+<style>
+  #msg {
+    position: absolute;
+    font-size: 2em;
+    font-family: 'Jua';
+    left: 100px;
+    top: 100px;
+  }
+  #img1 {
+    position: absolute;
+    left: 500px;
+    top: 150px;
+  }
+  button {
+    width: 300px;
+    height: 30px;
+  }
+</style>
+<!--스크립트-->
+<script>
+  $(function(){
+
+  }); 
+</script>
+</head>
+<!--바디-->
+<body>
+  <button type="button" id="btn1">fade-effect 완성 후 문자열 추가</button>
+  <br><br>
+  <img src="../img/ani11.gif" alt="">
+  <script>
+    // $("#btn1").click(function(){
+    //   $("img").fadeTo('slow', 0.5, function(){
+    //     $("img").after("<b>안녕하세요</b><br>"); // div에 추가는 .append , .after
+    //   })
+    // });
+
+    // on(jquery 1.8~) 은 현재 존재하는 요소나 미래에 발생하는 요소 모두 가능
+    // jquery 1.7 이전은 .live
+    $("#btn1").on("click", function(){
+        $("img").fadeTo('slow', 0.5, function(){
+        // img 태그 뒤에다가 추가
+        $("img").after("<b>안녕하세요</b><br>"); // div에 추가는 .append , .after
+        });
+    });    
+  </script>
+</body>
+</html>

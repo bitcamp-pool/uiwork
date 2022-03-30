@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
+    rel="stylesheet">
+<!--스타일-->
+<style>
+  body * {
+    font-size: 1.2rem;
+    font-family: 'Jua';
+    margin: 0;
+    padding: 0;
+    border: 1px solid #666;
+  }
+  .header {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Gamja Flower';
+    font-weight: bold;
+    font-size: 35px;
+  }
+  .container {
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    width: 1080px;
+    height: 600px;
+    
+  }
+  .box_wrap {
+    width: inherit;
+    
+    
+    
+  }
+  .box {
+    position: relative;
+    top: -365px;
+    display: inline-block;
+    text-align: left;
+    width: 310px;
+    height: 200px;
+  }
+  .display {
+    position: relative;
+    margin-left: 20px;
+    top: -360px;
+    width: 622px;
+    height: 360px;
+    
+  }
+  .li {
+    list-style: none;
+    position: relative;
+    top: 10px;
+    display: inline-block;
+    width: 410px;
+    height: 575px;
+  }
+</style>
+
+<!--스크립트-->
+<script>
+</script>
+</head>
+
+<!--바디-->
+<body>
+  <div class="header">영화관 예매 사이트</div>
+  <div class="container">
+    <div class="box_wrap">
+      <div class="box">
+        <button type="button" class="btn1">영화예매</button>
+      </div>
+      <div class="box"></div>
+      <div class="li"></div>
+    </div>
+    <div class="display"></div>
+  </div>
+
+  <script>
+    $(".btn1").click(function(){
+      var s = "";
+      s += "<button type='button' class='btn2'>극장선택</button>&nbsp";
+      s += "<button type='button' class='btn3'>영화선택</button>";
+      $("div.box").eq(1).html(s);
+    });
+    $(document).on("click", ".btn2", function(){
+      var s="";
+      s+="<li>CGV 강남점</li>";
+      s+="<li>MEGABOX 강남점</li>";
+      s+="<li>CGV 교보타워점</li>";
+      $(".li").html(s); 
+    });
+    $(document).on("click", ".btn3", function(){
+      var s="";
+      s+="<li>바람과 같이 사라지다</li>";
+      s+="<li>엑시트</li>";
+      s+="<li>괴물</li>";
+      $(".li").html(s); 
+    });
+  </script>
+
+</body>
+
+</html>

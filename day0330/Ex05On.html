@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
+    rel="stylesheet">
+<!--스타일-->
+<style>
+  body * {
+    font-size: 1.2rem;
+    font-family: 'Jua';
+  }
+</style>
+
+<!--스크립트-->
+<script>
+  $(function(){
+
+  }); 
+</script>
+
+</head>
+
+<!--바디-->
+<body>
+  <button type="button" id="btn1">이미지와 버튼 추가</button>
+  <div></div>
+
+  <script>
+    $("#btn1").click(function(){
+      var s="<img src='../img/mail07.gif'>";
+      s+="<br><br>";
+      s+="<button type='button' class='addbtn'>Click</button>";
+      s+="<br>";
+
+      // $("div").html(s);
+      $("div").append(s); // 계속 추가...
+    });
+
+    // 나중에 추가된 .addbtn에 click 이벤트를 줘보자
+    // 나중에 추가된 요소들은 일반 이벤트로는 구현 안됨
+    // $(".addbtn").click(function(){
+    //   $(this).after("<img src='../img/img01.gif'><br>");
+    // }); 
+    
+    // (이벤트, selector, 함수) 
+    $(document).on("click", ".addbtn", function(){
+      $(this).after("<img src='../img/img01.gif' class='photo'><br>");
+    });
+
+    // img.photo를 클릭시 해당 이미지 뒤에 버튼 추가(class명은 twobtn)
+    $(document).on("click", "img.photo", function(){
+      $(this).after("<button type='button' class='twobtn'>변경</button>");
+    });
+
+    // .twobtn을 누르면 바로 앞 .photo의 이미지 변경
+    $(document).on("click", ".twobtn", function(){
+      $(this).prev().attr("src", "../img/ani01.gif");
+    });
+
+  </script>
+</body>
+
+</html>

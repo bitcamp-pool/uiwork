@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
+    rel="stylesheet">
+<style>
+  .box1 {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: tomato;
+    margin-top: 5px;
+  }
+</style>
+<script>
+  $(function(){
+    $("div.box1").each(function(index){
+      $(this).delay(index*500).animate({"left":"+=300px"}, 'slow');
+    });
+    $("img").slideUp(2000).delay(1000).slideDown(2000);
+
+  });
+</script>
+</head>
+<body>
+  <img src="../jquery_image/01.png" alt="">
+
+  <div class="box1"></div>
+  <div class="box1"></div>
+  <div class="box1"></div>
+  <div class="box1"></div>
+  <div class="box1"></div>
+  <div class="box1"></div>
+</body>
+</html>

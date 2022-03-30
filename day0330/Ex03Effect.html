@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
+    rel="stylesheet">
+<!--스타일-->
+<style>
+  #msg {
+    position: absolute;
+    font-size: 2em;
+    font-family: 'Jua';
+    left: 100px;
+    top: 100px;
+  }
+  #img1 {
+    position: absolute;
+    left: 500px;
+    top: 150px;
+  }
+  button {
+    width: 100px;
+    height: 30px;
+  }
+</style>
+<!--스크립트-->
+<script>
+  $(function(){
+
+  }); 
+</script>
+</head>
+<!--바디-->
+<body>
+  <button type="button" id="btn1">Hide</button>
+  <button type="button" id="btn2">Show</button>
+  <button type="button" id="btn3">Toggle</button>
+  <br>
+  <button type="button" id="btn4">SlideUp</button>
+  <button type="button" id="btn5">SlideDown</button>
+  <button type="button" id="btn6">SlideToggle</button>
+  <br>
+  <button type="button" id="btn7">FadeOut</button>
+  <button type="button" id="btn8">FadeIn</button>
+  <button type="button" id="btn9">FadeToggle</button>
+  <button type="button" id="btn10">FadeTo</button>
+
+  <div id="msg">재미있는 제이쿼리!!!</div>
+  <img src="../jquery_image/image_01.png" id="img1" alt="">
+
+  <script>
+    // 보이기
+    $("#btn1").click(function(){
+      $("#msg").hide();
+      $("#img1").hide(1000); //숫자, slow, fast
+    });
+    $("#btn2").click(function(){
+      $("#msg").show();
+      $("#img1").show(1000); //숫자, slow, fast
+    });
+    $("#btn3").click(function(){
+      $("#msg").toggle(); // hide + show 번갈아 가면서
+      $("#img1").toggle(1000); //숫자, slow, fast
+    });
+
+    // 슬라이드
+    $("#btn4").click(function(){
+      $("#msg").slideUp('slow');
+      $("#img1").slideUp('slow'); //숫자, slow, fast
+    });
+    $("#btn5").click(function(){
+      $("#msg").slideDown('slow');
+      $("#img1").slideDown('slow'); //숫자, slow, fast
+    });
+    $("#btn6").click(function(){
+      $("#msg").slideToggle('slow');
+      $("#img1").slideToggle('slow'); //숫자, slow, fast
+    });
+
+    // 페이드
+    $("#btn7").click(function(){
+      $("#msg").fadeOut('slow');
+      $("#img1").fadeOut('slow'); //숫자, slow, fast
+    });
+    $("#btn8").click(function(){
+      $("#msg").fadeIn('slow');
+      $("#img1").fadeIn('slow'); //숫자, slow, fast
+    });
+    $("#btn9").click(function(){
+      $("#msg").fadeToggle(2000);
+      $("#img1").fadeToggle(2000); //숫자, slow, fast
+    });
+    $("#btn10").click(function(){
+      // 3초동안 반투명이 된 후 함수 실행(border 변경)
+      $("#msg").fadeTo(3000, 0.5, function(){
+        $("#msg").css("border", "10px dotted orange");
+      });
+      // 이미지가 서서히 흐려지다가 3초 뒤 다시 원래 투명도로 전환
+      $("#img1").fadeTo(3000, 0.2, function(){
+        $("#img1").css("opacity", "1");
+        $("#msg").css("opacity", "1");
+      });
+    });
+  </script>
+  <br>
+  <!-- <button type="button" id="btn11">fade-effect 완성 후 문자열 추가</button> -->
+</body>
+</html>
