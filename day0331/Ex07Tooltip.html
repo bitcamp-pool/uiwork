@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>  
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+   
+    <style>
+        div.tooltip{
+            line-height: 1.5;
+            color: white;
+            width: 200px;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 1em;
+            font-size: 12px;
+            border-radius: 30px;
+            font-family: 'Jua';
+        }
+        a {
+            font-size: 3.3em;
+            font-family: 'Gamja Flower';
+            cursor: pointer;
+        }
+        b.view {
+            font-size: 20px;
+            font-family: 'Gamja';
+            font-style: italic; 
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(function(){
+            //툴팁에 css추가
+            $("div.tooltip").css({
+                "opacity":"0.9",
+                "position":"absolute",
+                "display":"none"
+            });
+
+            // b.view 활성화할 때 tooltip의 내용을 덮어쓰므로 따로 저장해 둠(초기화).
+            var menu = $("div.tooltip").html();
+ 
+            $("a").bind({
+                mouseover:function(){
+                    $("div.tooltip").fadeIn();
+                },
+                mouseout:function(){
+                    $("div.tooltip").fadeOut();
+                },
+                mousemove:function(e){
+                    $("div.tooltip").css({
+                        left:e.pageX+10+"px",
+                        top:e.pageY+10+"px",
+                        fontSize: "12px"
+                    });
+                    $("div.tooltip").html(menu);
+                }
+            });
+ 
+            $("b.view").bind({
+                mouseover:function(){
+                    $("div.tooltip").fadeIn();
+                },
+                mouseout:function(){
+                    $("div.tooltip").fadeOut();
+                },
+                mousemove:function(e){
+                    $("div.tooltip").css({
+                        left:e.pageX+10+"px",
+                        top:e.pageY+10+"px",
+                        fontSize:"25px"
+                    });
+                    //b.view의 text를 얻어서 툴팁에 넣기
+                    $("div.tooltip").text($(this).text());
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>Tooltip 링크 부분에 마우스를 올려보세요</h3>
+    <a>Tooltip</a>
+    <pre>
+        (서울=연합뉴스) 차지연 기자 = 윤석열 대통령 당선인은 31일
+        "우리나라도 불필요한 지출의 구조조정으로
+        <b class="view">HTML</b>·신용 보증·재취업 교육 지원 등을 포함한
+        50조원 손실보상이 이뤄져야 한다"고 강조했다.
+ 
+        윤 당선인은 이날 서울 종로구 통의동 대통령직인수위원회
+        사무실에서 인수위 경제분과 업무보고를 받은 자리에서
+        이렇게 말했다고 <b class="view">jQuery</b> 당선인 대변인이 서면 브리핑으로 밝혔다.
+    </pre>
+    <div class="tooltip">
+        Java<br>
+        HTML<br>
+        jQuery<br>
+        Oracle<br>
+        SpringBoot        
+    </div>
+</body>
+</html>
+ 
+
