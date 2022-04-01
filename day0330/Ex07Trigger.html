@@ -7,6 +7,9 @@
   <title>Document</title>
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>  
   <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
 </head>
 <body>
   <h2 style="color: blue;">Start:</h2>
@@ -32,12 +35,14 @@
   <!-- <input type="file" id="file"> -->
   
   <!--아래 아이콘을 클릭시 -->
-  <h1 style="cursor: pointer;">카메라 아이콘</h1>
+  <span class="glyphicon glyphicon-camera camera" style="font-size: 3em; cursor: pointer;" >
+    <!-- <h1 style="cursor: pointer;">카메라 아이콘</h1> -->
+  </span>
 
   <script>
     // 파일 목록 열기 클릭 이벤트 트리거 작동
     // 카메라를 클릭시 파일이 열리도록 해보자(trigger이용)
-    $("h1").click(function(){
+    $("span.camera").click(function(){
       $("#file").trigger("click");
     });
   </script>

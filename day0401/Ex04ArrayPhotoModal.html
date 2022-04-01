@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>ModalLoop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Jua';
+    }
+    div.photos {
+      margin-top: 100px;
+      margin-left: 100px;
+    }
+    div.photos figure {
+      float: left;
+      margin-right: 5px;
+    }
+    div.photos figure img {
+      width: 130px;
+      height: 140px;
+      cursor: pointer;
+    }
+    div.photos figure figcaption {
+      margin-left: 50px;
+      font-size: 28px;
+    }
+  </style>
+
+  <script>
+    $(function(){
+      arr = new Array();
+      // object로 배열에 넣는 방법
+      var ob1 = new Object();
+      ob1.imgname="../연예인사진/2.jpg";
+      ob1.title="김우빈";
+      arr.push(ob1);
+
+      ob2=new Object();
+      ob2.imgname="../연예인사진/5.jpg";
+      ob2.title="최지우";
+      arr.push(ob2);
+
+      ob3=new Object();
+      ob3.imgname="../연예인사진/6.jpg";
+      ob3.title="한예슬";
+      arr.push(ob3);
+
+      ob4=new Object();
+      ob4.imgname="../연예인사진/9.jpg";
+      ob4.title="강동원";
+      arr.push(ob4);
+
+      ob5=new Object();
+      ob5.imgname="../연예인사진/11.jpg";
+      ob5.title="고준희";
+      arr.push(ob5);
+
+      ob6=new Object();
+      ob6.imgname="../연예인사진/13.jpg";
+      ob6.title="박신혜";
+      arr.push(ob6);
+
+      // 출력
+      var s="총 " + arr.length + "개의 사진이 저장되었습니다.<br><br>"
+      // 배열 개수 만큼 반복
+      $.each(arr, function(idx, item){
+              s+="<figure>";
+              s+="<img src='" + item.imgname + "'class='img-circle photo'>";
+              s+="<figcaption>" + item.title + "</figcaption>";
+              s+="</figure>";
+
+              if(idx==2){
+                s+="<br style='clear:both'><br>";
+              }
+      });
+
+      // 사진을 클릭시 모달 다이얼로그 띄우기
+      // $("img.photo").click(function(){}); 이거로 해보기
+      
+      $(document).on("click", "div.photos figure img.photo", function(){
+        // 사진 src 얻기
+        var imgsrc=$(this).attr("src");
+        // 타이틀 얻기
+        var title = $(this).next().text();
+        // 사진 넣기
+        $("div.modal-body img").attr("src", imgsrc);
+        // 타이틀 넣기
+        $("h1.modal-title").text(title);
+
+        // name = $(this).next().text();
+        // $("h1.modal-title").text(name);
+        // $("div.modal-body p b").text(name);
+        // $("div.modal-body img").attr("src", $(this).attr("src"));
+
+        $("#myModal").modal();
+      });
+        
+      $("div.photos").html(s);
+    });
+  </script>
+</head>
+<body>
+  <div class="photos">111</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="madal-dialog modal-sm">  
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h1 class="modal-title">Modal Header</h1>
+        </div>
+        <div class="modal-body">
+          <p>아름다운 <b></b>님!!!</p>
+          <img src="" width="100%" class="img-rounded" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--//Modal-->  
+
+</body>
+</html>
