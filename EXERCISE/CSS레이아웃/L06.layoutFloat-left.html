@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-size: 2em;
+        }
+        h1, p {
+            margin: 0;
+        }
+        .container {
+            /* max-width: 1000px;  */
+            /* margin: auto;  */
+
+            /*자식이 floating 되어있으면 높이가 0가 되므로 색이 칠해지지 않는다*/
+            background: gray;
+        }
+        /* [가상클래스 사용]
+           자식 element 에서 float 했다면 부모 element가 끝나는 시점에서 
+           clear 해줘야 한다.
+           왜냐하면 부모 element가 정상적인 높이를 확보해야 하기 때문이다
+        */
+        .container::after {
+            content: '';
+            display: block;
+            clear: both;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .item {
+            float: left;
+            padding: 5%;
+        }
+        .item-a {
+            width: 30%; 
+            background: gold;
+        }
+        .item-b {
+            width: 50%;
+            background: yellowgreen;
+        }
+        footer {
+            clear: both;
+            color: white;
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="item item-a">
+            <h1>Section a</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, sequi harum veritatis fugiat accusamus eius ut enim suscipit voluptatem omnis quis quidem odit molestiae dolore laborum facilis reprehenderit fugit ab.</p>
+        </section>
+        <section class="item item-b">
+            <h1>Section b</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, sequi harum veritatis fugiat accusamus eius ut enim suscipit voluptatem omnis quis quidem odit molestiae dolore laborum facilis reprehenderit fugit ab.</p>
+        </section>
+        <!-- floating 해제하면 container박스안에 들어가므로 높이가 생겨 배경색이 보인다 -->
+        <!-- <div style="clear: both;"></div> -->
+    </div>
+    <footer>footer</footer>
+</body>
+</html>

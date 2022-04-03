@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 뷰포트란 디바이스에서 내용이 보이는 창을 의미 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <title>responsive</title>
+    <style>
+        body {
+            margin: 0;
+            /* font-size: 2em; */
+        }
+        h1, p {
+            margin: 0;
+        }
+        .container {
+            background: gray;
+        }
+        .item {
+            padding: 5%;
+        }
+        .item-a {
+            background: gold;
+        }
+        .item-b {
+            background: yellowgreen;
+        }
+        
+        /*700픽셀 이상*/
+        @media screen and (min-width:700px){
+            .container {
+                font-size: 0;
+            }
+            .item {
+                display: inline-block;
+                font-size: 1rem;
+                vertical-align: top;
+            }
+            .item-a {
+                width: 30%;
+            }
+            .item-b {
+                width: 50%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="item item-a">
+            <h1>Section a</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, sequi harum veritatis fugiat accusamus eius ut enim suscipit voluptatem omnis quis quidem odit molestiae dolore laborum facilis reprehenderit fugit ab.</p>
+        </section>
+        <section class="item item-b">
+            <h1>Section b</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, sequi harum veritatis fugiat accusamus eius ut enim suscipit voluptatem omnis quis quidem odit molestiae dolore laborum facilis reprehenderit fugit ab.</p>
+        </section>
+    </div>
+</body>
+</html>

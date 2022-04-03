@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+</head>
+<style>
+    body {
+        font-size: 1.3em;
+        color: #666;
+    }
+    div,header,nav,main,aside,section,footer {
+        display: block;
+        /* display: inline; */
+        /* display: inline-block; */
+
+        width: 100px;
+        height: 100px;
+        background: gold;
+    }
+    span,a,img,b,i,u,textarea {
+        /*박스가 없는 인라인은 크기조정이 불가*/
+        display: inline;
+        /* display: block; */
+        /* display: inline-block; */
+        background: yellowgreen;
+    }
+</style>
+<body>
+    <div>div</div>
+    <header>header</header>
+    <nav>nav</nav>
+    <main>main</main>
+    <aside>aside</aside>
+    <section>sec</section>
+    <footer>footer</footer>
+
+    <textarea name="" id="" cols="30" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero rem fugit voluptatem labore eaque earum, eum aut eos tenetur quam quaerat pariatur officiis aspernatur tempora perferendis voluptates culpa minus dolor.
+    </textarea>
+    <img src="../../jquery_image/03.png" alt="image">
+    <span>span</span>
+    <a href="https://google.com">google.com</a>
+    <b><i><u>인라인</u></i></b>
+
+</body>
+</html>

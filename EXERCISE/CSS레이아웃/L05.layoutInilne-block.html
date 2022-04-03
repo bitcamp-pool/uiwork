@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        /*css reset*/
+        body {
+            margin: 0;
+            font-size: 2em;
+        }
+        h1, p {
+            margin: 0;
+        }
+        .container {
+            /* width: 1000px; 줄이면 스크롤 생성 */
+            max-width: 1000px; /*스크롤(x) 늘이면 1000px 까지만*/
+            margin: auto; /*상하:0, 좌우: 똑같이 나누어 갖는다 */
+            /*올라오지만 자식에게도 적용되는 폰트 사이즈 문제*/ 
+            font-size: 0;
+            background: #666;
+        }
+        .item {
+            /*공백문자 때문에 안올라 옴*/
+            display: inline-block;
+            vertical-align: top;
+            padding: 5%;
+            font-size: 1rem; /*root em*/
+        }
+        .item-a {
+            width: 30%; /*패딩값 계산(5x2=10) 참고)box-sizing:border-box;인 경우에는 40%, 60%*/
+            background: gold;
+        }
+        .item-b {
+            width: 50%; /*패딩값 계산(5x2=10)*/
+            background: yellowgreen;
+        }
+        footer {
+            font-size: 1rem;
+            padding: 5%;
+            background: #666;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="item item-a">
+            <h1>Section a</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, sequi harum veritatis fugiat accusamus eius ut enim suscipit voluptatem omnis quis quidem odit molestiae dolore laborum facilis reprehenderit fugit ab.</p>
+        </section>
+        <section class="item item-b">
+            <h1>Section b</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, sequi harum veritatis fugiat accusamus eius ut enim suscipit voluptatem omnis quis quidem odit molestiae dolore laborum facilis reprehenderit fugit ab.</p>
+        </section>
+        <footer>
+            <h1>footer</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos ipsa omnis reiciendis ad mollitia perspiciatis magni fuga veritatis pariatur quo a ea similique eius obcaecati, cumque voluptatum magnam inventore ut?</p>
+        </footer>
+    </div>
+</body>
+</html>
