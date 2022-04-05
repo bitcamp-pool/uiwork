@@ -1,0 +1,68 @@
+<!--
+  기본선택자 : 직접 선택자, 인접관계 선택자
+  
+  1. 직접선택자
+  $("*")        전체선택자: 모든 요소를 선택
+  $("#아이디")  아이디 선택자: id속성에 지정한 값을 가진 요소를 선택
+  $(".클래스")  클래스 선택자: class속성에 지정한 값을 가진 요소를 선택
+  $("요소명")   요소 선택자: 지정한 요소명과 일치하는 요소들만 선택
+  $("선택1, 선택2, 선택3...선택n") 
+                그룹 선택자 : 선택n에 지정된 요소들을 한 번에 선택
+  $("p.txt_1")  종속선택자: <p>요소 중 class 값이 txt_1인 요소을 선택
+                                                  
+  2. 인접관계 선택자
+  $("요소").parent()    선택한 요소의 부모 요소를 선택
+  $("요소").parents()   선택한 요소의 상위 요소들 모두 선택
+  $("요소").closest("div") 선택한 요소의 상위 요소 중 가장 가까운<div>만 선택   
+  $("요소 하위요소")    선택한 요소에 지정한 하위 요소를 선택
+  $("요소>자식요소")    선택한 요소를 기준으로 바로 밑 자식 요소를 선택
+  $("요소").children()  선택한 요소의 모든 자식요소를 선택
+  $("요소").prev()      선택한 요소의 바로 이전 요소를 선택
+  $("요소").prevAll()   선택한 요소의 이전 요소 모두를 선택
+  $("요소").next()
+  $("요소").nextAll()
+  $("요소").siblings()  형제 요소 전체를 선택
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Selector</title>
+  <script src="../js/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+      $("*").css("font-family", "Rubik Puddles");
+      $("#tit").css("color", "green");
+      $(".sub").css("color", "white").css("background-color", "orange");
+      $(".sub.main").css("background-color", "red");
+      $("h2, h3").css("border", "3px solid gray")
+
+      // 종속선택자:선택한 요소의 id 또는 class값이 일치하는 요소를 선택
+      $("div.box").css({
+        "width":"100px",
+        "height": "100px",
+        "background":"yellowgreen",
+        "margin":"3px"
+      });
+      $("div#big").css("color", "white");
+
+    });
+    
+  </script>
+</head>
+<body>
+  <h1 id="tit">Jquery</h1>
+  <h2 class="sub main">Jquery</h2>
+  <h3 class="sub">Jquery</h3>
+  <div id="big" class="box">
+    <span>box1</span>
+  </div>
+  <div class="box">
+    <span>box2</span>
+  </div>
+  <div class="box">
+    <span>box3</span>
+  </div>
+</body>
+</html>
