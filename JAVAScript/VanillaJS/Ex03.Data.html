@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Data</title>
+</head>
+<body>
+  <script>
+    /*
+    [값(데이터)의 종류와 변수]
+    정수: 3, 100, 0, -11
+    실수: .0, 3.14
+    문자: 'A'
+    문자열: "Hello"
+    */
+   //  int x = 3;
+   var x = 3; // 데이터의 해석방법과 크기가 없이 가능?
+   
+   var x = 3.7;
+   var x = 'A';
+   var x = "Hello"
+   document.write(x);
+   document.write('<br>')
+
+   var i = 100; 
+   document.write(`자료형 이름은 ${typeof i} 입니다.`);
+   var i = new Number(100); // 100(Auto boxing) i는 참조형
+   document.write('<br>')
+   
+   // Wrapper 클래스와 Wrapping 방식
+   Boolean
+   Number
+   String
+   var b = true;
+   var n = 100;
+   var f = 3.141592;
+   var s = '문자열입니다.';
+
+   document.write(`변수b의 value:${b}, type:${typeof b}<br>`); 
+   document.write(`변수n의 value:${n}, type:${typeof n}<br>`); 
+   document.write(`변수f의 value:${f}, type:${typeof f}<br>`); 
+   document.write(`변수s의 value:${s}, type:${typeof s}<br>`); 
+   
+   document.write(`'문자열'의 길이: ${s.length} <br>`); 
+   document.write(`${f.toString()[0]}<br>`); // 참조변수인 증거.메소드()호출 가능
+
+   var a = 2;
+   var b = new Number(3);
+   var c = a + b;
+  //  alert(c);
+   var d; // undefined 아무것도 참조하고 있지 않은 변수
+  //  alert(d === undefined);
+   d = 0.0;
+   alert(d === undefined);
+  
+  //[자바스크립트의 유연함]
+   num = "값";
+   // 값에 따라 타입이 변한다. 자동으로 오토박싱
+   num = new Number(3);
+   num = new Number(3.0);
+   num = new String("3");
+   // 따라서 어떤 메소드를 사용할 수 있는지는 할당되는 객체에 따라서 달라진다.
+
+  </script>
+</body>
+</html>
